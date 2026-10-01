@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { nav, contact } from "../data/content";
-import ThemeToggle from "./ThemeToggle";
 import { GitHubIcon, LinkedInIcon } from "./icons";
 
 function MenuIcon(props) {
@@ -135,8 +134,7 @@ export default function Nav() {
 
   return (
     <>
-      {/* Desktop: fixed full-height index rail, always the dark end of the
-          brand regardless of the light/dark toggle — the one constant
+      {/* Desktop: fixed full-height index rail — the one constant
           structural anchor of the layout. */}
       <aside className="fixed inset-y-0 left-0 z-50 hidden w-[var(--rail-width)] flex-col justify-between border-r border-night-line bg-night px-7 py-8 lg:flex">
         <div>
@@ -169,9 +167,6 @@ export default function Nav() {
             >
               <LinkedInIcon className="h-4 w-4" />
             </a>
-            <div className="ml-auto">
-              <ThemeToggle dark />
-            </div>
           </div>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-night-text-soft/60">
             portfolio.sys © {new Date().getFullYear()}
@@ -232,9 +227,6 @@ export default function Nav() {
             >
               <LinkedInIcon className="h-4 w-4" />
             </a>
-            <div className="ml-auto">
-              <ThemeToggle dark />
-            </div>
           </div>
         </div>
       </div>

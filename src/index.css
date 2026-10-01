@@ -1,14 +1,9 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
-
 @theme {
-  /* Cobalt-blue brand, evolving between a warm-ivory light theme and a
-     navy-black dark theme — plus a second "signal" accent (a technical,
-     terminal-readout green) used sparingly and structurally: status marks,
-     result badges, the active index rule. Dark-theme overrides live in the
-     plain CSS block further down so the same semantic tokens (bg-paper,
-     text-ink, text-accent…) work in both themes without touching markup. */
+  /* Cobalt-blue brand on a warm-ivory ground, plus a second "signal"
+     accent (a technical, terminal-readout green) used sparingly and
+     structurally: status marks, result badges, the active index rule. */
   --color-paper: #f7f5f0;
   --color-paper-dim: #efece4;
   --color-paper-line: #dcdfe6;
@@ -43,21 +38,6 @@
 }
 
 @layer base {
-  :root[data-theme="dark"] {
-    --color-paper: #090d15;
-    --color-paper-dim: #0e1522;
-    --color-paper-line: #1f2a3d;
-    --color-surface: #111a2a;
-
-    --color-ink: #f2f4f8;
-    --color-ink-soft: #94a3bd;
-    --color-ink-faint: #74849f;
-
-    --color-accent: #4fa8ff;
-    --color-signal: #34d399;
-    --color-gold: #d4a63f;
-  }
-
   * {
     box-sizing: border-box;
   }
