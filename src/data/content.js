@@ -10,7 +10,7 @@ export const profile = {
     "I'm a Computer Science graduate specializing in AI and Machine Learning.",
   aboutBody:
     "I enjoy building practical applications that combine intelligent systems, software engineering, and clean user experiences.",
-  exploring: ["Computer Vision", "Generative AI", "Machine Learning", "Full-Stack Development"],
+  exploring: ["Machine Learning", "Generative AI", "NLP", "Full Stack Development"],
   degree: "B.Tech — CSE (AI-ML)",
   graduation: "2022 – 2026",
   college: "Gayatri Vidya Parishad College of Engineering for Women",
