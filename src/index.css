@@ -1,0 +1,223 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme {
+  /* Cobalt-blue brand, evolving between a warm-ivory light theme and a
+     navy-black dark theme — plus a second "signal" accent (a technical,
+     terminal-readout green) used sparingly and structurally: status marks,
+     result badges, the active index rule. Dark-theme overrides live in the
+     plain CSS block further down so the same semantic tokens (bg-paper,
+     text-ink, text-accent…) work in both themes without touching markup. */
+  --color-paper: #f7f5f0;
+  --color-paper-dim: #efece4;
+  --color-paper-line: #dcdfe6;
+  --color-surface: #ffffff;
+
+  --color-ink: #0e1420;
+  --color-ink-soft: #4b5568;
+  --color-ink-faint: #5c6579;
+
+  --color-accent: #2451d6;
+  --color-signal: #1f7a5c;
+  --color-gold: #82611a;
+
+  /* Constant across both themes — the hero/contact "bookend" sections and
+     the sidebar rail are always the dark end of the brand. */
+  --color-night: #0a0e16;
+  --color-night-raised: #131c2c;
+  --color-night-line: #232c3f;
+  --color-night-text: #f2f4f8;
+  --color-night-text-soft: #94a3bd;
+  --color-accent-soft: #4fa8ff;
+  --color-signal-soft: #34d399;
+  --color-gold-soft: #d4a63f;
+
+  --font-display: "Space Grotesk", "Arial Narrow", sans-serif;
+  --font-serif: "Fraunces", "Iowan Old Style", serif;
+  --font-sans: "Inter", -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+
+  --breakpoint-xs: 420px;
+  --rail-width: 15.5rem;
+}
+
+@layer base {
+  :root[data-theme="dark"] {
+    --color-paper: #090d15;
+    --color-paper-dim: #0e1522;
+    --color-paper-line: #1f2a3d;
+    --color-surface: #111a2a;
+
+    --color-ink: #f2f4f8;
+    --color-ink-soft: #94a3bd;
+    --color-ink-faint: #74849f;
+
+    --color-accent: #4fa8ff;
+    --color-signal: #34d399;
+    --color-gold: #d4a63f;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-paper);
+  }
+
+  a {
+    color: inherit;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .text-fluid-h2 {
+    font-size: clamp(2.25rem, 4.6vw, 3.75rem);
+  }
+
+  /* Faint graph-paper texture — the recurring "lab notebook" ground for
+     dark surfaces (sidebar rail, hero, contact). */
+  .grid-texture {
+    background-image:
+      linear-gradient(var(--color-night-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-night-line) 1px, transparent 1px);
+    background-size: 34px 34px;
+  }
+
+  .dot-texture {
+    background-image: radial-gradient(var(--color-night-line) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  /* Hide scrollbars on the achievement filmstrip / other snap rails while
+     keeping native touch + keyboard scroll behaviour intact. */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hero-float {
+    animation: hero-float 7s ease-in-out infinite;
+  }
+
+  @keyframes hero-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+  }
+
+  .scroll-pulse {
+    animation: scroll-pulse 1.8s ease-in-out infinite;
+  }
+
+  @keyframes scroll-pulse {
+    0%, 100% { transform: translateY(0); opacity: 0.4; }
+    50% { transform: translateY(10px); opacity: 1; }
+  }
+
+  .wave-bar {
+    animation: wave-bar 2.4s ease-in-out infinite;
+  }
+
+  @keyframes wave-bar {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(0.55); }
+  }
+
+  .type-line {
+    animation: type-line 4.5s ease-in-out infinite;
+  }
+
+  @keyframes type-line {
+    0%, 55%, 100% { opacity: 1; }
+    30% { opacity: 0.25; }
+  }
+
+  .cursor-blink {
+    animation: cursor-blink 1s step-end infinite;
+  }
+
+  @keyframes cursor-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .pulse-ring {
+    stroke: var(--color-signal-soft);
+    stroke-width: 1;
+    opacity: 0.6;
+    transform-origin: center;
+    transform-box: fill-box;
+    animation: pulse-ring 2.6s ease-out infinite;
+  }
+
+  @keyframes pulse-ring {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(2.6); opacity: 0; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .timeline-line {
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.9s ease 0.15s;
+  }
+
+  .reveal-visible .timeline-line {
+    transform: scaleY(1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+}
