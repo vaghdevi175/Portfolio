@@ -92,8 +92,8 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
-      <div className="relative mx-auto flex w-full max-w-[80rem] items-center justify-between border-t border-night-line px-6 py-4 sm:px-10">
-        <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-night-text-soft">
+      <div className="relative mx-auto flex w-full max-w-[80rem] flex-col items-start gap-2 border-t border-night-line px-6 py-4 xs:flex-row xs:items-center xs:justify-between xs:gap-0 sm:px-10">
+        <span className="break-all font-mono text-[11px] uppercase tracking-[0.14em] text-night-text-soft">
           {contact.email}
         </span>
         <span className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-night-text-soft">
