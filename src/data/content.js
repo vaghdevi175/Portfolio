@@ -27,8 +27,7 @@ export const contact = {
     label: "github.com/vaghdevi175",
     url: "https://github.com/vaghdevi175",
   },
-  // No resume URL has been provided yet — CTA stays visible but inert/editable.
-  resumeUrl: null,
+  resumeUrl: "/docs/Vaghdevi-Pappala-Resume.pdf",
 };
 
 // Education intentionally contains only the B.Tech record — Intermediate
@@ -93,16 +92,24 @@ export const skills = [
     items: ["Python", "C", "SQL"],
   },
   {
-    category: "AI / ML",
-    items: ["Scikit-learn", "PyTorch", "TensorFlow", "Pandas", "NumPy"],
+    category: "Core",
+    items: ["OOP", "Machine Learning", "Data Preprocessing", "Feature Engineering", "Model Evaluation"],
+  },
+  {
+    category: "AI / NLP",
+    items: ["NLP", "LLMs", "Generative AI"],
+  },
+  {
+    category: "Libraries",
+    items: ["NumPy", "Pandas", "Scikit-learn", "Streamlit"],
   },
   {
     category: "Backend",
-    items: ["FastAPI", "Flask", "REST APIs"],
+    items: ["FastAPI", "Flask"],
   },
   {
     category: "Database",
-    items: ["MongoDB", "MongoDB Atlas"],
+    items: ["MongoDB"],
   },
 ];
 
@@ -124,12 +131,7 @@ export const projects = [
     visual: "fashion",
     media: {
       mainImage: "/media/projects/fashion-fit-3.png",
-      images: [
-        "/media/projects/fashion-fit-1.png",
-        "/media/projects/fashion-fit-2.png",
-        "/media/projects/fashion-fit-4.png",
-        "/media/projects/fashion-fit-5.png",
-      ],
+      images: ["/media/projects/fashion-fit-1.png", "/media/projects/fashion-fit-2.png"],
       video: "/media/projects/fashion-fit.mp4",
     },
     technologies: ["Python", "PyTorch", "OpenCV", "React", "Flask", "MongoDB Atlas"],
@@ -183,7 +185,6 @@ export const projects = [
       mainImage: "/media/projects/voice-4.png",
       images: [
         "/media/projects/voice-1.png",
-        "/media/projects/voice-2.png",
         "/media/projects/voice-3.png",
         "/media/projects/voice-5.png",
         "/media/projects/voice-6.png",
